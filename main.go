@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"bufio"
+
 )
 
 func main() {
@@ -26,11 +28,12 @@ func main() {
             }
         }
         fmt.Println("Enter your email")
-				TLD()
+				tlds = TLD()
         for range 3 {
             fmt.Scan(&email)
-					validMail :=	strings.Contains(email, "@") && 
-					if validMail {
+					validMail :=
+					if {
+						strings.Contains(email, "@")
 						
 					}
 
@@ -49,14 +52,31 @@ func main() {
 }
 
 }
-func TLD() {
-	file, err := os.Open(TLD)
-	if err != nil {
-		log.Fatal(err)
-	}
-	os.ReadFile(file)
-	for _ in file {
-		file.readl
+func TLD() []string {
+	file, err := os.Open("TLD")
+    if err != nil {
+        log.Fatalf("failed to open file: %s", err)
+    }
+    defer file.Close() 
 
+
+    scanner := bufio.NewScanner(file)
+
+		var tlds []string
+    for scanner.Scan() {
+      tlds = append(tlds, scanner.Text())
+    }
+
+    if err := scanner.Err(); err != nil {
+        fmt.Printf("error reading file: %s", err)
+    }
+		return tlds
+	}
+	
+
+
+func checkErr(e error) {
+	if e != nil {
+		panic(e)
 	}
 }
