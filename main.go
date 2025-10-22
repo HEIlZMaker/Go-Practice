@@ -12,25 +12,27 @@ func main() {
     //firstname , lastname, email, phone number, amountoftickets into matrix
 		var firstname, lastname, email, phonenumber string
     tickets := 0
-   for i := 1; i <= 50; i = i + tickets {
+   for i := 1; i <= 50; i = i + tickets 
        for range 3 {
            fmt.Scan(&firstname)
            if len(firstname) > 2 {
 						break
            }
        }
-       fmt.Println("Type your lastname")
+       
        for range 3 {
-           fmt.Scan(&lastname)
-					 if len(lastname) > 2 {
-						break
-           }
+				fmt.Println("Type your lastname")
+        fmt.Scan(&lastname)
+				if len(lastname) > 2 {
+					break
+        }
        }
-       fmt.Println("Enter your email")
+       
 			tlds := TLD()
 			var validTLD bool
        	for range 3 {
-           fmt.Scan(&email)
+					fmt.Println("Enter your email")
+          fmt.Scan(&email)
 				  containsAt := strings.Contains(email, "@")
 					for i := range tlds { 
 					if strings.Contains(email, tlds[i]) {
@@ -45,16 +47,24 @@ func main() {
 						
 				}
        }
-      fmt.Println("Enter your phonenumber")
+      validNumber := true
       for range 3 {
-        fmt.Scan(&phonenumber)
-			for i := range phonenumber {
-				if !unicode.IsLetter(phonenumber) {
+				fmt.Println("Enter your phonenumber")
+				fmt.Scan(&phonenumber)
+				for _, i := range phonenumber {
+					if !unicode.IsLetter(i) {
+						validNumber = false
+						break
+					}
+				}
+				if validNumber {
 					break
 				}
 			}
-		}
-   } 
+			for range 3 {
+				fmt.Println("Enter how many tickets you want to order")
+			}
+    
 }
 
 
