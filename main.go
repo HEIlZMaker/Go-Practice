@@ -12,59 +12,68 @@ func main() {
     //firstname , lastname, email, phone number, amountoftickets into matrix
 		var firstname, lastname, email, phonenumber string
     tickets := 0
-   for i := 1; i <= 50; i = i + tickets 
-       for range 3 {
-           fmt.Scan(&firstname)
-           if len(firstname) > 2 {
-						break
-           }
-       }
+  for i := 1; i <= 50; i = i + tickets {
+    for {
+    	fmt.Scan(&firstname)
+    	if len(firstname) > 2 {
+				break
+    }
+					 
+  }
        
-       for range 3 {
-				fmt.Println("Type your lastname")
-        fmt.Scan(&lastname)
-				if len(lastname) > 2 {
-					break
-        }
-       }
+  for {
+		fmt.Println("Type your lastname")
+  	fmt.Scan(&lastname)
+		if len(lastname) > 2 {
+			break
+   }
+  }
        
-			tlds := TLD()
-			var validTLD bool
-       	for range 3 {
-					fmt.Println("Enter your email")
-          fmt.Scan(&email)
-				  containsAt := strings.Contains(email, "@")
-					for i := range tlds { 
-					if strings.Contains(email, tlds[i]) {
-						validTLD = true
-						break
-					} else {
-						validTLD = false
-					}
-					if containsAt && validTLD {
-						break
-					}
-						
-				}
-       }
-      validNumber := true
-      for range 3 {
-				fmt.Println("Enter your phonenumber")
-				fmt.Scan(&phonenumber)
-				for _, i := range phonenumber {
-					if !unicode.IsLetter(i) {
-						validNumber = false
-						break
-					}
-				}
-				if validNumber {
-					break
-				}
+	tlds := TLD()
+	validTLD := true
+	containsAt := true
+  for {
+		fmt.Println("Enter your email")
+    fmt.Scan(&email)
+	  containsAt = strings.Contains(email, "@")
+		for i := range tlds {
+			if strings.Contains(email, tlds[i]) {
+				break
+			} 
+			if i = len(tlds) {
+				
 			}
-			for range 3 {
-				fmt.Println("Enter how many tickets you want to order")
 			}
-    
+		if containsAt && validTLD {
+			break
+		}
+					
+		}
+  }
+validNumber := true
+ for {
+		fmt.Println("Enter your phonenumber")
+		fmt.Scan(&phonenumber)
+		for _, i := range phonenumber {
+			if !unicode.IsNumber(i) {
+				validNumber = false
+			}
+		}
+		if validNumber {
+			break
+		}
+	}
+	 validTicketcount := true
+	for {
+		fmt.Println("Enter how many tickets you want to order")
+		fmt.Scan(&tickets)
+		for _, unicodeIndex = range tickets {
+			if unicode.IsLetter(unicodeIndex) {
+				validTicketcount = false			
+		}
+	}
+		}
+	}
 }
 
 
