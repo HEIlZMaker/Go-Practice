@@ -40,7 +40,7 @@ func main() {
 			if strings.Contains(email, tlds[i]) {
 				break
 			} 
-			if i = len(tlds) {
+			if i == len(tlds) {
 				
 			}
 			}
@@ -63,18 +63,19 @@ validNumber := true
 			break
 		}
 	}
-	 validTicketcount := true
+	validTicketcount := true
 	for {
 		fmt.Println("Enter how many tickets you want to order")
 		fmt.Scan(&tickets)
-		for _, unicodeIndex = range tickets {
+		for i, unicodeIndex := range tickets {
 			if unicode.IsLetter(unicodeIndex) {
 				validTicketcount = false			
-		}
-	}
+			}
+			if 
 		}
 	}
 }
+
 
 
 func TLD() []string {
